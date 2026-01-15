@@ -24,7 +24,20 @@ const getPostById = async(req, res) => {
         console.error(error);
         res.status(500).json({message: 'Error retrieving post', error: error.message});
     }};
+
+    const createPost = async(req, res) => {
+    const postData = req.body;
+    console.log(postData);
+    try {
+        const newPost = await postModel.create(postData);
+        res.status(201).json(newPost);
+    }catch(error) {
+        console.error(error);
+        res.status(500).json({message: 'Error creating post', error: error.message});
+    }
+};
 module.exports = {
-    getAllPosts
-    ,getPostById,
+    getAllPosts,
+    getPostById,
+    createPost
 };

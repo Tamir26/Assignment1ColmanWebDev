@@ -3,4 +3,14 @@
 GET http://localhost:3000/posts
 
 ### Get Post By ID
-GET http://localhost:3000/posts/{{id}}
+GET http://localhost:3000/posts/6963ee28f06c4d6043272148
+
+### Create New Post
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+	"title": "Sample",
+	"conetent": "Body text",
+	"sender": "You"
+}
