@@ -2,3 +2,5 @@
 
 GET http://localhost:3000/posts
 
+### Get Post By ID
+GET http://localhost:3000/posts/{{id}}
