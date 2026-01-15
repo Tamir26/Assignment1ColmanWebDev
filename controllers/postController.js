@@ -11,7 +11,20 @@ const getAllPosts = async (req, res) => {
         res.status(500).json({ message: 'Error retrieving posts', error: error.message });
     }
 };
+const getPostById = async(req, res) => {
+    const id = req.params.id;
+    try {
+        const post = await postModel.findById(id);
+        if (!post) {
+            return res.status(404).json({message: 'Post not found'});
+        } else{  
+          res.json(post);}
 
+    }catch(error) {
+        console.error(error);
+        res.status(500).json({message: 'Error retrieving post', error: error.message});
+    }};
 module.exports = {
     getAllPosts
+    ,getPostById,
 };
