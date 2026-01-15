@@ -36,8 +36,21 @@ const getPostById = async(req, res) => {
         res.status(500).json({message: 'Error creating post', error: error.message});
     }
 };
+const updatePost = async(req, res) => {
+    const id = req.params.id;
+    const updatedData = req.body
+    try {
+    const post = await postModel.findByIdAndUpdate(id,updatedData, {
+        new: true});
+        res.json(post);
+    } catch(error) {
+        console.error(error);
+        res.status(500).json({message: 'Error updating post', error: error.message});
+    }};
+
 module.exports = {
     getAllPosts,
     getPostById,
     createPost
+    ,updatePost,
 };

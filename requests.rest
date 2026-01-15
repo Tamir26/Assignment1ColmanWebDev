@@ -14,3 +14,15 @@ Content-Type: application/json
 	"conetent": "Body text",
 	"sender": "You"
 }
+
+
+
+### Update Post By ID
+PUT http://localhost:3000/posts/6963ee28f06c4d6043272148
+Content-Type: application/json	
+
+{
+	"title": "Updated Sample",
+	"content": "Updated Body text",
+	"sender": "You"
+}
