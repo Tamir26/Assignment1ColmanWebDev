@@ -14,3 +14,18 @@ Content-Type: application/json
 	"conetent": "Body text",
 	"sender": "You"
 }
+
+### Get comments for a Post
+
+GET http://localhost:3000/posts/6968ce8efd1f1e318c42032b/comments
+
+
+### Create Comment for a Post
+
+POST http://localhost:3000/posts/6968ce8efd1f1e318c42032b/comments
+Content-Type: application/json
+
+{
+	"content": "This is a comment",
+	"author": "Commenter"
+}

@@ -4,7 +4,10 @@ const mongoose =  require("mongoose");
 
 app.use(express.json());
 const postRoute = require('./routes/postRoute.js');
+const commentRoute = require('./routes/commentRoute.js');
 app.use("/posts", postRoute); 
+app.use("/posts/:postId/comments", commentRoute); 
+
 
 const initApp = async () => { 
     const pr = new Promise((resolve) => {
