@@ -3,7 +3,7 @@ const app = express();
 const mongoose =  require("mongoose");
 
 app.use(express.json());
-const postRoute = require('./routes/postRoute');
+const postRoute = require('./routes/postRoute.js');
 app.use("/posts", postRoute); 
 
 const initApp = async () => { 

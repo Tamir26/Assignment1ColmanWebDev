@@ -1,0 +1,4 @@
+### Get All Posts
+
+GET http://localhost:3000/posts
+
