@@ -15,14 +15,17 @@ Content-Type: application/json
 	"sender": "You"
 }
 
+### Get comments for a Post
+
+GET http://localhost:3000/posts/6968ce8efd1f1e318c42032b/comments
 
 
-### Update Post By ID
-PUT http://localhost:3000/posts/6963ee28f06c4d6043272148
-Content-Type: application/json	
+### Create Comment for a Post
+
+POST http://localhost:3000/posts/6968ce8efd1f1e318c42032b/comments
+Content-Type: application/json
 
 {
-	"title": "Updated Sample",
-	"content": "Updated Body text",
-	"sender": "You"
+	"content": "This is a comment",
+	"author": "Commenter"
 }
