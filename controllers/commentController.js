@@ -23,7 +23,32 @@ const createComment = async (req, res) => {
     }
 };
 
+const updateComment = async (req, res) => { 
+    const commentId = req.params.commentId;
+    const updatedData = req.body;
+    try {
+        const updatedComment = await commentmodel.findByIdAndUpdate(commentId, updatedData, { new: true });
+        res.json(updatedComment);
+    }      catch (error) { 
+        console.error(error);
+        res.status(500).json({ message: 'Error updating comment', error: error.message });
+    }
+};
+
+const deleteComment = async (req, res) => { 
+    const commentId = req.params.commentId;
+    try {
+        await commentmodel.findByIdAndDelete(commentId);
+        res.status(204).end();
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error deleting comment', error: error.message });
+    }
+}
+
 module.exports = {
     getCommentsForPost,
-    createComment
+    createComment,
+    updateComment,
+    deleteComment
 };

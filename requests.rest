@@ -29,3 +29,17 @@ Content-Type: application/json
 	"content": "This is a comment",
 	"author": "Commenter"
 }
+
+
+### Update Comment
+
+PUT http://localhost:3000/posts/comments/6968ce8efd1f1e318c42032b
+Content-Type: application/json
+
+{
+	"content": "This is a comment",
+	"author": "Commenter"
+}
+### Delete Comment
+
+DELETE http://localhost:3000/posts/comments/6968ce8efd1f1e318c42032b
