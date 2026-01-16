@@ -5,13 +5,16 @@ GET http://localhost:3000/posts
 ### Get Post By ID
 GET http://localhost:3000/posts/6968ce8efd1f1e318c42032b
 
+### Get Posts by Sender
+GET http://localhost:3000/posts?sender=You
+
 ### Create New Post
 POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
 	"title": "New Sample",
-	"conetent": "Body text",
+	"content": "Body text",
 	"sender": "You"
 }
 
@@ -43,7 +46,7 @@ Content-Type: application/json
 
 ### Update Comment
 
-PUT http://localhost:3000/posts/6968ce8efd1f1e318c42032b/comments/6968ce8efd1f1e318c42032b
+PUT http://localhost:3000/posts/6968ce8efd1f1e318c42032b/comments/696a2c24c62dc1b34728bffb
 Content-Type: application/json
 
 {
