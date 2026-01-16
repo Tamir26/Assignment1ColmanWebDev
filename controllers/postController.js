@@ -36,8 +36,26 @@ const getPostById = async(req, res) => {
         res.status(500).json({message: 'Error creating post', error: error.message});
     }
 };
+
+const updatePost = async(req, res) => {
+    const id = req.params.id;
+    const updateData = req.body;
+    try {
+        const updatedPost = await postModel.findByIdAndUpdate(id, updateData, { new: true });
+        if (!updatedPost) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+        res.json(updatedPost);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error updating post', error: error.message });
+    }
+};
+
 module.exports = {
     getAllPosts,
     getPostById,
-    createPost
+    createPost,
+    updatePost
+
 };
