@@ -38,7 +38,10 @@ const updateComment = async (req, res) => {
 const deleteComment = async (req, res) => { 
     const commentId = req.params.commentId;
     try {
-        await commentmodel.findByIdAndDelete(commentId);
+        const deletedComment = await commentmodel.findByIdAndDelete(commentId);
+        if (!deletedComment) {
+            return res.status(404).json({ message: 'Comment not found' });
+        }
         res.status(204).end();
     } catch (error) {
         console.error(error);
